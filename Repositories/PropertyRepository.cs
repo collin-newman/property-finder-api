@@ -7,7 +7,9 @@ using Dapper;
 
 
 
-public class PropertyRepository : IPropertyRepository
+namespace PropertyFinderApi.Repositories
+{
+  public class PropertyRepository : IPropertyRepository
 {
     private readonly string _connectionString;
 
@@ -51,4 +53,6 @@ public class PropertyRepository : IPropertyRepository
         int affectedRows = db.Execute("DELETE FROM properties WHERE property_id = @Id", new { Id = id });
         return affectedRows > 0;
     }
+}
+
 }
